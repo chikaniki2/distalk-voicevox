@@ -229,8 +229,8 @@ async def on_voice_state_update(member, before, after):
                     if len(member.guild.voice_client.channel.members) == 1:
                         await asyncio.sleep(0.5)
                         await member.guild.voice_client.disconnect()
-                    else:
-                        # text = member.name + 'さんが退室しました'
+                    # else:
+                        #text = member.name + 'さんが退室しました'
                         # mp3url = f'https://api.su-shiki.com/v2/voicevox/audio/?text={text}&key={voicevox_key}&speaker={voicevox_speaker}&intonationScale=1'
                         # while member.guild.voice_client.is_playing():
                         #     await asyncio.sleep(0.5)
