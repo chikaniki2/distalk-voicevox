@@ -203,14 +203,18 @@ async def on_voice_state_update(member, before, after):
         else:
             if member.guild.voice_client is None:
                 await asyncio.sleep(0.5)
-                await after.channel.connect()
-                await asyncio.sleep(0.5)
-                text = 'いらっしゃいませ、' + member.name + 'さん'
-                mp3url = f'https://api.su-shiki.com/v2/voicevox/audio/?text={text}&key={voicevox_key}&speaker={voicevox_speaker}&speed={voicevox_speed}&intonationScale=1'
-                while member.guild.voice_client.is_playing():
-                    await asyncio.sleep(0.5)
-                source = await discord.FFmpegOpusAudio.from_probe(mp3url)
-                member.guild.voice_client.play(source)
+                if member.name != 'VOISCORD'
+                    text = 'いらっしゃいませ、' + member.name + 'さん'
+                    await ctx.send(text)
+                
+                # await after.channel.connect()
+                # await asyncio.sleep(0.5)
+                # text = 'いらっしゃいませ、' + member.name + 'さん'
+                # mp3url = f'https://api.su-shiki.com/v2/voicevox/audio/?text={text}&key={voicevox_key}&speaker={voicevox_speaker}&speed={voicevox_speed}&intonationScale=1'
+                # while member.guild.voice_client.is_playing():
+                #     await asyncio.sleep(0.5)
+                # source = await discord.FFmpegOpusAudio.from_probe(mp3url)
+                # member.guild.voice_client.play(source)
                 
             else:
                 if member.guild.voice_client.channel is after.channel:
